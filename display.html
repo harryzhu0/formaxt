@@ -2,7 +2,8 @@
 <html>
 	<head>
 		<title>Formaxt</title>
-		<link rel="stylesheet" href="src\css\styles.css">
+		<link rel="stylesheet" href="src/css/styles.css">
+		<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 	</head>
 	<body>
 	<div class="title-bar">
@@ -24,6 +25,7 @@
 		<div class="output">
 			<div class="output-bar">
 				<button class="compile" id="compile-button">Compile</button>
+				<button class="options" id="options">Options</button>
 			</div>
 			<div class="output-document" id="output-doc"></div>
 		</div>
@@ -32,13 +34,16 @@
 	<div class="modal">
 		<div class="modal-content">
 			<h4>Compile Options</h4>
-			<span class="close" id="close">×<span>
+			<span class="close" id="close">×</span>
 
-
+			<input type="checkbox" id="md" value="md" checked>Markdown</input>
+			<input type="checkbox" id="latex" value="latex">Latex</input>
+			<input type="checkbox" id="html" value="html">Html</input>
 		</div>
 	</div>
 
-	<script src="src\js\main.js"></script>
+	<script src="src/js/main.js"></script>
+	<script src="src/ui_js/ui_main.js"></script>
 	
 	</body>
 </html>

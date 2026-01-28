@@ -34,10 +34,46 @@ function compile_md(html) {
 
 }
 
-function compile() {
-	// Right now just some basic stuff :)
-	
-	output.innerHTML = compile_md(input.innerText);
+function compile_latex(text) {
+	// Block LaTeX first: $$...$$
+	text = text.replace(/\$\$(.+?)\$\$/gs, (match, p1) => {
+		return `\\[${p1}\\]`;
+	});
+
+	// Inline LaTeX: $...$
+	text = text.replace(/\$(.+?)\$/g, (match, p1) => {
+		return `\\(${p1}\\)`;
+	});
+
+	return text;
 }
 
-compile_button.addEventListener('click', compile);
+
+
+function render() {
+	let text = input.innerText; // editor content
+
+	let html = '';
+
+	if (document.getElementById('md').checked) {
+		html = compile_md(text); // enhanced Markdown parser
+	}
+
+	if (document.getElementById('latex').checked) {
+		html = compile_latex(html); // detect & render LaTeX
+	}
+
+	if (document.getElementById('html').checked) {
+		html += '<pre>' + escapeHTML(text) + '</pre>'; // raw HTML view
+	}
+
+	output.innerHTML = html;
+
+	// Re-render LaTeX if using MathJax:
+	if (window.MathJax) {
+		MathJax.typesetPromise([output]);
+	}
+}
+
+
+compile_button.addEventListener('click', render);
