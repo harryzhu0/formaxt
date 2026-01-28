@@ -23,14 +23,24 @@ titleInput.value = project.name;
 
 // Save button
 document.getElementById('save').addEventListener('click', () => {
+    // 1. Get the correct data from the page
     const title = document.querySelector('.title-bar h4').innerText;
     const content = document.getElementById('editor').innerText;
+    const projectId = getProjectId(); // Use the function you already have
 
-    // Example: save to localStorage (you can change to IndexedDB or server)
+    if (!projectId) {
+        alert('Error: No project ID.');
+        return;
+    }
+
+    // 2. Load all projects, update the current one, and save back
     let projects = JSON.parse(localStorage.getItem('projects') || '{}');
-    const projectId = new URLSearchParams(window.location.search).get('id') || Date.now();
-    projects[projectId] = { title, content };
+    projects[projectId] = {
+        name: title,    // Save under 'name' (matching loadProject)
+        content: content,
+        updated: new Date().toISOString() // Optional: add a timestamp
+    };
     localStorage.setItem('projects', JSON.stringify(projects));
 
-    alert('Saved!');
+    alert(`Project "${title}" saved!`);
 });
