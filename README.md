@@ -13,7 +13,7 @@ Hello world! \textbf{yay!}
 ```
 And now:
 ```
-Hello world! *Yay!*
+Hello world! **Yay!**
 ```
 Or even
 ```
@@ -21,3 +21,5 @@ Hello world! <b>Yay!</b>
 ```
 <sup>Why would you ever do this</sup><br>
 People are going to scream at me for doing this, but eh. It's probably impractical anyway, but it's fun.
+
+**NOTE: THIS IS CURRENTLY UNDER DEVELOPMENT.**
