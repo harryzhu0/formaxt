@@ -1,16 +1,128 @@
+/* GENERAL LAYOUT */
 body {
-  font-family: Arial;
-  font-color: #000000;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f7f5;
+  color: #1b1f1b;
 }
 
-.editor {
-  width: 50%;
-  height: 100%;
-  fomt-family: Consolas;
+/* TITLE BAR */
+.title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 10px;
+  padding-left: 20px;
+  background-color: #2e8b57;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  height: 30px;
+}
+
+.title-bar h2 {
+  margin: 0;
+  font-weight: 500;
+}
+
+.return {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* SAVE BUTTON */
+.save-button {
   background-color: white;
+  color: #2e8b57;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  margin-left: 10px;
 }
 
+.save-button:hover {
+  background: #e6f3ea;
+}
+
+/* MAIN LAYOUT */
+.layout {
+  display: flex;
+  height: calc(100vh - 60px);
+}
+
+/* LEFT SIDE — EDITOR */
+.ide {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #dcdcdc;
+}
+
+/* TOOLBAR */
 .toolbar {
-  width: 300px;
-  height: 200px;
+  padding: 10px;
+  background-color: #eef5ef;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.toolbar button {
+  margin-right: 8px;
+  padding: 6px 10px;
+  border: 1px solid #bcd5c3;
+  background-color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.toolbar button:hover {
+  background: #e6f3ea;
+}
+
+/* EDITOR AREA */
+.editor {
+  flex: 1;
+  padding: 20px;
+  outline: none;
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-y: auto;
+  background: white;
+}
+
+/* RIGHT SIDE — OUTPUT */
+.output {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* COMPILE BUTTON */
+.compile {
+  padding: 10px;
+  background-color: #2e8b57;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 5px;
+  margin: 10px;
+  width: 120px;
+}
+
+.compile:hover {
+  background: #267349;
+}
+
+/* OUTPUT DOCUMENT */
+.output-document {
+  flex: 1;
+  padding: 20px;
+  background: #ffffff;
+  overflow-y: auto;
+  border-left: 1px solid #dcdcdc;
 }
