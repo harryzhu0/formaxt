@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Formaxt</title>
+		<link rel="stylesheet" href="src\css\styles.css">
+	</head>
+	<body>
+	<div class="title-bar">
+		<a class="return" href="index.html">Formaxt</a>
+		<button class="save-button" id="save">Save</button>
+		<h4>New Document<h4>
+	</div>
+	<div class="layout">
+		<div class="ide">
+			<div class="toolbar">
+				<button id="bold"><b>B</b></button>
+				<button id="italics"><i>I</i></button>
+				<button id="underline"><u>U</u></button>
+				<button id="math">Math</button>
+			</div>
+			<div class="editor" contenteditable="true" id="editor">Start typing here...</div>
+		</div>
+
+		<div class="output">
+			<div class="output-bar">
+				<button class="compile" id="compile-button">Compile</button>
+			</div>
+			<div class="output-document" id="output-doc"></div>
+		</div>
+	</div>
+	
+	<script src="src\js\main.js"></script>
+	
+	</body>
+</html>
